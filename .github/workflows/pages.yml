@@ -27,6 +27,11 @@ jobs:
 
       - run: npm ci
 
+      # 若仓库还没启用 Pages，自动把 Source 设为 GitHub Actions
+      - uses: actions/configure-pages@v5
+        with:
+          enablement: true
+
       # 如需在构建时固化 relay 地址，取消下面 env 注释（仓库 Settings → Secrets and variables → Actions → Variables 里建 VITE_SIGILS_WS_URL）
       - run: npm run build:web
         # env:
