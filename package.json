@@ -1,0 +1,26 @@
+{
+  "name": "sigils-independent-web-editor",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "workspaces": [
+    "packages/*",
+    "apps/*"
+  ],
+  "scripts": {
+    "typecheck": "tsc --noEmit && npm run typecheck:tests && npm run build --workspace @sigils/server",
+    "typecheck:tests": "tsc --noEmit -p tsconfig.tests.json",
+    "dev:web": "npm run dev --workspace @sigils/web",
+    "build:web": "npm run build --workspace @sigils/web",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "build:server": "npm run build --workspace @sigils/server",
+    "dev:server": "npm run dev --workspace @sigils/server",
+    "typecheck:server": "npm run build --workspace @sigils/server"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.0",
+    "typescript": "^5.7.2",
+    "vitest": "^2.1.8"
+  }
+}
